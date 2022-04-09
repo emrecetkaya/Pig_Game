@@ -13,6 +13,7 @@ const diceEl = document.querySelector('.dice');
 const btnNewEl = document.querySelector('.btn--new');
 const btnRollEl = document.querySelector('.btn--roll');
 const btnHoldEl = document.querySelector('.btn--hold');
+const helpBtn = document.querySelector('.btn--help');
 
 //current scores
 const current0El = document.getElementById('current--0');
@@ -22,10 +23,40 @@ const current1El = document.getElementById('current--1');
 const player0 = document.querySelector('.player--0');
 const player1 = document.querySelector('.player--1');
 
+// Modal window
+const modalWindow = document.querySelector('.modal');
+const modalCls = document.querySelector('.close-modal');
+const overlay = document.querySelector('.overlay');
+
+// Input window
+const inputWindow = document.querySelector('.input');
+
 const scores = [0, 0];
 let rolledDice = 0;
 let activePlayer = 0;
 let playing = true;
+
+// Closing modal window
+modalCls.addEventListener('click', function () {
+  modalWindow.classList.add('hidden');
+  inputWindow.classList.remove('hidden');
+});
+
+// Submit button
+function submitInfo() {
+  var name1 = document.getElementById('name1').value;
+  var name2 = document.getElementById('name2').value;
+  document.getElementById('name--0').textContent = name1;
+  document.getElementById('name--1').textContent = name2;
+  inputWindow.classList.add('hidden');
+  overlay.classList.add('hidden');
+}
+
+// Help button
+helpBtn.addEventListener('click', function () {
+  modalWindow.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+});
 
 //Setting them to 0
 score0El.textContent = 0;
@@ -78,7 +109,7 @@ btnHoldEl.addEventListener('click', function () {
       scores[activePlayer];
     console.log(scores);
     // Check if active player has 100 or more score to win
-    if (scores[activePlayer] >= 10) {
+    if (scores[activePlayer] >= 100) {
       playing = false;
 
       // add special vision to winner

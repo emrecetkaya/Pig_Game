@@ -8,6 +8,46 @@
     <title>Pig Game</title>
   </head>
   <body>
+    <button class="btn btn--help">❔ Help</button>
+
+    <div class="modal">
+      <button class="close-modal">&times;</button>
+      <h1 style="font-size: 30px">Welcome To Pig Game 🎲</h1>
+      <p style="font-size: 20px">
+        <br />
+        &nbsp;First player throws a die and scores as many points as the total
+        shown on the die providing the die doesn't roll a 1. The player may
+        continue rolling and accumulating points (but risk rolling a 1) or end
+        his turn.<br /><br />
+        &nbsp;If the player rolls a 1 his turn is over, he loses all points he
+        accumulated that turn, and he passes the die to the next player.<br /><br />
+        &nbsp;Play passes from player to player until a winner is determined.
+        <br /><br />
+      </p>
+      <h1 style="font-size: 30px">How Do You Win ? 🏆</h1>
+      <p style="font-size: 20px">
+        <br />
+        The first player to accumulate 100 or more points wins the game.
+      </p>
+    </div>
+
+    <div class="input hidden">
+      <h1 style="font-size: 30px">Enter Player Names 👾</h1>
+      <h1>Player1:</h1>
+      <br />
+      <input type="text" id="name1" />
+      <br /><br />
+      <h1>Player 2:</h1>
+      <br />
+      <input type="text" id="name2" />
+      <br />
+      <button id="submitBtn" class="submit-input" onclick="submitInfo()">
+        Submit
+      </button>
+    </div>
+
+    <div class="overlay"></div>
+
     <main>
       <section class="player player--0 player--active">
         <h2 class="name" id="name--0">Player 1</h2>
